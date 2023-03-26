@@ -1,4 +1,4 @@
-import { InMemoryUsersRespository } from "@/repositories/in-memory/in-memory-users-respository";
+import { InMemoryUsersRepository } from "@/repositories/in-memory/in-memory-users-respository";
 import { compare } from "bcryptjs";
 import { it, describe, expect, beforeEach } from "vitest";
 import { UserAlreadyExistsError } from "./erros/user-already-exists-error";
@@ -6,12 +6,12 @@ import { RegisterUseCase } from "./resgister";
 
 // Unit Tests
 
-let usersRepository: InMemoryUsersRespository;
+let usersRepository: InMemoryUsersRepository;
 let sut: RegisterUseCase;
 
 describe("Register Use Case", () => {
   beforeEach(() => {
-    usersRepository = new InMemoryUsersRespository();
+    usersRepository = new InMemoryUsersRepository();
     sut = new RegisterUseCase(usersRepository);
   });
 

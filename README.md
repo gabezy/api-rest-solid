@@ -7,13 +7,13 @@ Gympass style app.
 - [x] It must be possible to register
 - [x] It must be possible to authenticate
 - [x] it must be possible to get the profile of a logged-in user
-- [x] it must be possible to get the check-ins numbers realized by the logged-in user
+- [] it must be possible to get the check-ins numbers realized by the logged-in user
 - [] it must be possible for the user to get the check-ins history
 - [] It must be possible for the user to search for gyms nearby
 - [] It must be possible for the user to search gyms by the name
-- [] It must be possible for the user to check-in in a gym
+- [x] It must be possible for the user to check-in in a gym
 - [] It must be possible to validate a user's check-in
-- [] It must be possible to register a gym
+- [x] It must be possible to register a gym
 
 ## RNs (Regras de negócio)
 

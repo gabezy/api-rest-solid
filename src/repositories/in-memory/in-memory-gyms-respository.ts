@@ -2,7 +2,7 @@ import { Prisma, type Gym } from "@prisma/client";
 import { randomUUID } from "crypto";
 import { type GymsRepository } from "../gyms-repository";
 
-export class InMemoryGymsRespository implements GymsRepository {
+export class InMemoryGymsRepository implements GymsRepository {
   public items: Gym[] = [];
 
   async findById(id: string): Promise<Gym | null> {

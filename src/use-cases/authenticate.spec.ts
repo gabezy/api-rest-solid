@@ -1,4 +1,4 @@
-import { InMemoryUsersRespository } from "@/repositories/in-memory/in-memory-users-respository";
+import { InMemoryUsersRepository } from "@/repositories/in-memory/in-memory-users-respository";
 import { hash } from "bcryptjs";
 import { it, describe, expect, beforeEach } from "vitest";
 import { AuthenticateUseCase } from "./authenticate";
@@ -6,12 +6,12 @@ import { InvalidCretentialsError } from "./erros/invalid-cretentials-error";
 
 // Unit Tests
 
-let usersRepository: InMemoryUsersRespository;
+let usersRepository: InMemoryUsersRepository;
 let sut: AuthenticateUseCase;
 
 describe("Authenticate Use Case", () => {
   beforeEach(() => {
-    usersRepository = new InMemoryUsersRespository();
+    usersRepository = new InMemoryUsersRepository();
     sut = new AuthenticateUseCase(usersRepository);
   });
 

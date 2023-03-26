@@ -1,4 +1,4 @@
-import { InMemoryUsersRespository } from "@/repositories/in-memory/in-memory-users-respository";
+import { InMemoryUsersRepository } from "@/repositories/in-memory/in-memory-users-respository";
 import { type UsersRepository } from "@/repositories/users-repository";
 import { GetUserProfileUseCase } from "@/use-cases/get-user-profile";
 import { hash } from "bcryptjs";
@@ -10,7 +10,7 @@ let sut: GetUserProfileUseCase;
 
 describe("Get User Profile Use Case", () => {
   beforeEach(() => {
-    usersRepository = new InMemoryUsersRespository();
+    usersRepository = new InMemoryUsersRepository();
     sut = new GetUserProfileUseCase(usersRepository);
   });
 

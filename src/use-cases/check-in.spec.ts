@@ -1,18 +1,18 @@
-import { InMemoryCheckInsRespository } from "@/repositories/in-memory/in-memory-check-in-respository";
-import { InMemoryGymsRespository } from "@/repositories/in-memory/in-memory-gyms-respository";
+import { InMemoryCheckInsRepository } from "@/repositories/in-memory/in-memory-check-in-respository";
+import { InMemoryGymsRepository } from "@/repositories/in-memory/in-memory-gyms-respository";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { CheckInUseCase } from "./check-in";
 import { MaxDistanceError } from "./erros/max-distance-erro";
 import { MaxNumberOfCheckInsError } from "./erros/max-number-of-check-ins-error";
 
-let checkinsRepository: InMemoryCheckInsRespository;
-let gymsRepository: InMemoryGymsRespository;
+let checkinsRepository: InMemoryCheckInsRepository;
+let gymsRepository: InMemoryGymsRepository;
 let sut: CheckInUseCase;
 
 describe("Check-in Use case", () => {
   beforeEach(async () => {
-    checkinsRepository = new InMemoryCheckInsRespository();
-    gymsRepository = new InMemoryGymsRespository();
+    checkinsRepository = new InMemoryCheckInsRepository();
+    gymsRepository = new InMemoryGymsRepository();
     sut = new CheckInUseCase(checkinsRepository, gymsRepository);
 
     await gymsRepository.create({
