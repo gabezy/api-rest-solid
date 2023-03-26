@@ -7,12 +7,12 @@ Gympass style app.
 - [x] It must be possible to register
 - [x] It must be possible to authenticate
 - [x] it must be possible to get the profile of a logged-in user
-- [] it must be possible to get the check-ins numbers realized by the logged-in user
-- [] it must be possible for the user to get the check-ins history
-- [] It must be possible for the user to search for gyms nearby
-- [] It must be possible for the user to search gyms by the name
+- [x] it must be possible to get the check-ins numbers realized by the logged-in user
+- [x] it must be possible for the user to get the check-ins history
+- [x] It must be possible for the user to search for gyms nearby (until 10KM)
+- [x] It must be possible for the user to search gyms by the name
 - [x] It must be possible for the user to check-in in a gym
-- [] It must be possible to validate a user's check-in
+- [x] It must be possible to validate a user's check-in
 - [x] It must be possible to register a gym
 
 ## RNs (Regras de negócio)
@@ -20,7 +20,7 @@ Gympass style app.
 - [x] The user can't register wwith a duplicate e-mail
 - [x] the user can't do 2 check-ins in the same day
 - [x] The user can't make check-in if she/he isn't close (100m) to the gym
-- [] The check-in can only be validated until 20 minutes after create
+- [x] The check-in can only be validated until 20 minutes after create
 - [] The check-in only can be validate by administrators
 - [] The Gym only can be registred by administrators
 
@@ -30,6 +30,8 @@ Gympass style app.
 - [] The application data must be persisted in a PostgreSQL database
 - [] All data list must be paginated with 20 items
 - [] The user must be identified by a JWT (JSON Web Tkoen)
+
+#### Docker Commands
 
 ```sh
 # Create a new prisma migration
