@@ -1,3 +1,4 @@
+import fastifyJwt from "@fastify/jwt";
 import fastify from "fastify";
 import { ZodError } from "zod";
 import { env } from "./env";
@@ -5,8 +6,15 @@ import { appRoutes } from "./http/routes";
 
 export const app = fastify();
 
-// eslint-disable-next-line @typescript-eslint/no-floating-promises
-app.register(appRoutes);
+const start = async (): Promise<void> => {
+  await app.register(fastifyJwt, {
+    secret: env.JWT_SECRET,
+  });
+
+  await app.register(appRoutes);
+};
+
+void start();
 
 app.setErrorHandler((error, _, reply) => {
   if (error instanceof ZodError) {

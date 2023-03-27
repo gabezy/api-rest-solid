@@ -16,10 +16,21 @@ export const authenticate = async (
 
   try {
     const authenticateUseCase = makeAuthenticateUseCase();
-    await authenticateUseCase.execute({
+    const { user } = await authenticateUseCase.execute({
       email,
       password,
     });
+
+    const token = await reply.jwtSign(
+      {},
+      {
+        sign: {
+          sub: user.id,
+        },
+      }
+    );
+
+    return await reply.status(200).send({ token });
   } catch (err) {
     console.log({ err });
     if (err instanceof InvalidCretentialsError) {
@@ -30,6 +41,4 @@ export const authenticate = async (
 
     throw err;
   }
-  console.log("Sucesss");
-  return await reply.status(200).send();
 };

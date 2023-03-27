@@ -27,8 +27,8 @@ Gympass style app.
 ## RNFs (Requisitos não-funcionais)
 
 - [x] The user's password must be encrypt
-- [] The application data must be persisted in a PostgreSQL database
-- [] All data list must be paginated with 20 items
+- [x] The application data must be persisted in a PostgreSQL database
+- [x] All data list must be paginated with 20 items
 - [] The user must be identified by a JWT (JSON Web Tkoen)
 
 #### Docker Commands
@@ -71,3 +71,13 @@ docker ps -a
   <br>
 
 **unit tests need to be as specific as possible**
+
+### JSON Web token (JWT)
+
+- User make login sending the email and passaword, the back-end creates a unique token, non-modifiable and Stateless
+- Stateless: not stored in any data persisted data structure (Database)
+- back-end: When going to create the token, it use a key-word (string)
+- Key-word: dsahjdhakjdhajkshdajkshdasfa (more dificult, better)
+- E-mail/passowrd -> header.payload.sign
+- Login => JWT
+- JWT => All request from then on Header => authorization: Bearer
