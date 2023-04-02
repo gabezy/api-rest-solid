@@ -30,10 +30,10 @@ describe("Search gym Use Case", () => {
       longitude: 1,
     });
 
-    const { gym } = await sut.execute({ query, page: 1 });
+    const { gyms } = await sut.execute({ query, page: 1 });
 
-    expect(gym).toHaveLength(2);
-    expect(gym).toEqual([
+    expect(gyms).toHaveLength(2);
+    expect(gyms).toEqual([
       expect.objectContaining({ title: "JavaScript Gym" }),
       expect.objectContaining({ title: "TypeScript Gym" }),
     ]);
@@ -52,10 +52,10 @@ describe("Search gym Use Case", () => {
       });
     }
 
-    const { gym } = await sut.execute({ query, page: 2 });
+    const { gyms } = await sut.execute({ query, page: 2 });
 
-    expect(gym).toHaveLength(2);
-    expect(gym).toEqual([
+    expect(gyms).toHaveLength(2);
+    expect(gyms).toEqual([
       expect.objectContaining({ title: "JavaScript Gym 21" }),
       expect.objectContaining({ title: "JavaScript Gym 22" }),
     ]);

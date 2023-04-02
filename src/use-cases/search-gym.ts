@@ -1,4 +1,4 @@
-import { type GymsRepository } from "@/repositories/gyms-repository";
+import { type PrismaGymsRepository } from "@/repositories/prisma/prisma-gyms-repository";
 import { type Gym } from "@prisma/client";
 
 interface SearchGymCaseRequest {
@@ -7,18 +7,18 @@ interface SearchGymCaseRequest {
 }
 
 interface SearchGymrCaseResponse {
-  gym: Gym[];
+  gyms: Gym[];
 }
 
 export class SearchGymUseCase {
-  constructor(private readonly gymsRepository: GymsRepository) {}
+  constructor(private readonly gymsRepository: PrismaGymsRepository) {}
 
   async execute({
     query,
     page,
   }: SearchGymCaseRequest): Promise<SearchGymrCaseResponse> {
-    const gym = await this.gymsRepository.searchMany(query, page);
+    const gyms = await this.gymsRepository.searchMany(query, page);
 
-    return { gym };
+    return { gyms };
   }
 }

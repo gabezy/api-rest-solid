@@ -30,12 +30,12 @@ describe("Fecth nearby gyms Use Case", () => {
       phone: null,
     });
 
-    const { gym } = await sut.execute({
+    const { gyms } = await sut.execute({
       userLatitude: -15.8337195,
       userLongitude: -47.8328526,
     });
 
-    expect(gym).toHaveLength(1);
-    expect(gym).toEqual([expect.objectContaining({ title: "Near Gym" })]);
+    expect(gyms).toHaveLength(1);
+    expect(gyms).toEqual([expect.objectContaining({ title: "Near Gym" })]);
   });
 });

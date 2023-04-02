@@ -2,7 +2,9 @@ import fastifyJwt from "@fastify/jwt";
 import fastify from "fastify";
 import { ZodError } from "zod";
 import { env } from "./env";
-import { appRoutes } from "./http/routes";
+import { usersRoutes } from "./http/controllers/users/routes";
+import { gymsRoutes } from "./http/controllers/gyms/routes";
+import { checkInsRoutes } from "./http/controllers/check-ins/routes";
 
 export const app = fastify();
 
@@ -11,7 +13,9 @@ const start = async (): Promise<void> => {
     secret: env.JWT_SECRET,
   });
 
-  await app.register(appRoutes);
+  await app.register(usersRoutes);
+  await app.register(gymsRoutes);
+  await app.register(checkInsRoutes);
 };
 
 void start();

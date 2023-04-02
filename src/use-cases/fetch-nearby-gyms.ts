@@ -7,7 +7,7 @@ interface FetchNearbyGymsCaseRequest {
 }
 
 interface FetchNearbyGymsrCaseResponse {
-  gym: Gym[];
+  gyms: Gym[];
 }
 
 export class FetchNearbyGymsUseCase {
@@ -17,11 +17,11 @@ export class FetchNearbyGymsUseCase {
     userLatitude,
     userLongitude,
   }: FetchNearbyGymsCaseRequest): Promise<FetchNearbyGymsrCaseResponse> {
-    const gym = await this.gymsRepository.findManyNearBy({
+    const gyms = await this.gymsRepository.findManyNearBy({
       latitude: userLatitude,
       longitude: userLongitude,
     });
 
-    return { gym };
+    return { gyms };
   }
 }
