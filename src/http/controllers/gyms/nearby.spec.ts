@@ -15,7 +15,7 @@ describe("Nearby Gyms (e2e)", () => {
   // FIXME: status code 500 - Internal server erro
 
   it("should be able to list nearby gyms", async () => {
-    const { token } = await registerAndAuthenticateUser(app);
+    const { token } = await registerAndAuthenticateUser(app, true);
 
     await request(app.server)
       .post("/gyms")

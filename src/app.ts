@@ -1,4 +1,5 @@
 import fastifyJwt from "@fastify/jwt";
+import fastifyCookie from "@fastify/cookie";
 import fastify from "fastify";
 import { ZodError } from "zod";
 import { env } from "./env";
@@ -11,8 +12,16 @@ export const app = fastify();
 const start = async (): Promise<void> => {
   await app.register(fastifyJwt, {
     secret: env.JWT_SECRET,
+    cookie: {
+      cookieName: "refreshToken",
+      signed: false,
+    },
+    sign: {
+      expiresIn: "10m",
+    },
   });
 
+  await app.register(fastifyCookie);
   await app.register(usersRoutes);
   await app.register(gymsRoutes);
   await app.register(checkInsRoutes);

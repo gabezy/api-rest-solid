@@ -22,7 +22,10 @@ export const authenticate = async (
     });
 
     const token = await reply.jwtSign(
-      {},
+      {
+        role: user.role,
+        email: user.email,
+      },
       {
         sign: {
           sub: user.id,
@@ -30,7 +33,28 @@ export const authenticate = async (
       }
     );
 
-    return await reply.status(200).send({ token });
+    const refreshToken = await reply.jwtSign(
+      {
+        role: user.role,
+        email: user.email,
+      },
+      {
+        sign: {
+          sub: user.id,
+          expiresIn: "7d",
+        },
+      }
+    );
+
+    return await reply
+      .status(200)
+      .setCookie("refreshToken", refreshToken, {
+        path: "/",
+        secure: true,
+        sameSite: true,
+        httpOnly: true,
+      })
+      .send({ token });
   } catch (err) {
     console.log({ err });
     if (err instanceof InvalidCretentialsError) {
