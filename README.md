@@ -21,15 +21,15 @@ Gympass style app.
 - [x] the user can't do 2 check-ins in the same day
 - [x] The user can't make check-in if she/he isn't close (100m) to the gym
 - [x] The check-in can only be validated until 20 minutes after create
-- [] The check-in only can be validate by administrators
-- [] The Gym only can be registred by administrators
+- [x] The check-in only can be validate by administrators
+- [x] The Gym only can be registred by administrators
 
 ## RNFs (Requisitos não-funcionais)
 
 - [x] The user's password must be encrypt
 - [x] The application data must be persisted in a PostgreSQL database
 - [x] All data list must be paginated with 20 items
-- [] The user must be identified by a JWT (JSON Web Tkoen)
+- [x] The user must be identified by a JWT (JSON Web Tkoen)
 
 #### Docker Commands
 
